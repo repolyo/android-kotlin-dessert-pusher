@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         // Make sure the correct dessert is showing
         binding.dessertButton.setImageResource(currentDessert.imageId)
 
-        dessertTimer = DessertTimer()
+        dessertTimer = DessertTimer(this.lifecycle)
     }
 
 
@@ -156,7 +156,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onStart() {
         super.onStart()
-        dessertTimer.startTimer()
         Timber.i("onStart called")
     }
 
@@ -177,7 +176,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onStop() {
         super.onStop()
-        dessertTimer.stopTimer()
         Timber.i("onStop")
     }
 
